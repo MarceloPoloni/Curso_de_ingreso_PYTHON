@@ -33,9 +33,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        nombre_alumno = self.txt_nombre.get()
-        prompt("nombre del alumno","Bienvenido!" + " " + nombre_alumno)
-    
+        nombre_alumno = prompt ("Ingreso" , "Ingrese su nombre")
+        self.txt_nombre.delete(0,"end")
+        self.txt_nombre.insert(0,nombre_alumno)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

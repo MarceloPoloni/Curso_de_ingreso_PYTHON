@@ -65,11 +65,19 @@ class App(customtkinter.CTk):
          alert ("Resultado" , "El resultado de la resta es {0}".format(resultado))
 
     def btn_multiplicar_on_click(self):
-        pass
+         numero_1 = int(self.txt_operador_a.get())
+         numero_2 = int(self.txt_operador_b.get())
+         resultado = numero_1 * numero_2
+         alert("Resultado","El resultado de la resta es {0}".format(resultado))
 
-    def btn_dividir_on_click(self):
-        pass
+
         
+    def btn_dividir_on_click(self):
+        numero_1 = int(self.txt_operador_a.get())
+        numero_2 = int(self.txt_operador_b.get())
+        resultado = numero_1 / numero_2 
+        alert("Resultado", "El resultado de la división es {0}".format(resultado))
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

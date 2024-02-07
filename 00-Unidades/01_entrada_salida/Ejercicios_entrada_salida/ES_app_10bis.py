@@ -41,8 +41,11 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        pass
-
+        saldo = float(self.txt_importe.get())
+        descuento = float(self.txt_descuento.get())
+        saldo_actualizado = saldo *(descuento / 100)
+        resultado = saldo - saldo_actualizado
+        alert("Saldo",resultado)
 
 if __name__ == "__main__":
     app = App()

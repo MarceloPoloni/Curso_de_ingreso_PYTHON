@@ -26,7 +26,7 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        alert("ES_1", "Esto no anda,funciona")
+        alert("ES_1", "mora,tengo hambre")
 
 
 

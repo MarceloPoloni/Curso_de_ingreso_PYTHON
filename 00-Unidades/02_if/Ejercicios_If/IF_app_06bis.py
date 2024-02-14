@@ -39,7 +39,17 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        altura = int (self.txt_altura.get())
+        if altura < 160:
+            mensaje = "usted es base"
+        elif altura < 180 and altura > 159:
+            mensaje = "usted es escolta"
+        elif altura < 200 and altura > 179:
+            mensaje = "usted es alero"
+        else:
+            mensaje = " usted es ala/pivot o pivot"
+        alert ("basquet", mensaje)    
+
 
         
         

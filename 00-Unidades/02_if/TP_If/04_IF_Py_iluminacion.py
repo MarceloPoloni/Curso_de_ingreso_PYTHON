@@ -43,7 +43,90 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca_lamparas = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+        precio = 800 * cantidad
+        total = precio
+        mensaje = total
+        
+        if cantidad > 5:
+            descuento = 0.5 * precio
+            total = precio - descuento
+            mensaje = total
+        
+        
+
+        elif cantidad == 5 :
+            if marca_lamparas == "ArgentinaLuz":
+                descuento = 0.4 * precio
+                total =  precio - descuento 
+                mensaje = total
+            else: 
+                descuento = 0.3 * precio
+                total = precio - descuento  
+                mensaje = total
+        
+         
+        elif cantidad == 4:
+            if marca_lamparas == "ArgentinaLuz" or marca_lamparas == "FelipeLamparas" :
+                descuento = 0.25 * precio
+                total = precio - descuento
+                mensaje = total
+            else :
+                descuento = 0.2 * precio
+                total = precio - descuento
+                mensaje = total
+        
+        elif cantidad == 3 :
+            if marca_lamparas == "ArgentinaLuz":
+                descuento = 0.15 * precio
+                total = precio - descuento
+                mensaje = total
+            elif marca_lamparas == "FelipeLamparas":
+                descuento = 0.1 * precio
+                total = precio - descuento
+                mensaje = total
+            else :
+                descuento = 0.05 * precio
+                total = precio - descuento
+
+        
+
+        if total > 4000 :
+            descuento = 0.05 * precio
+            total = precio - descuento
+            mensaje = total
+
+        alert ("Lamparas", mensaje)
+          
+        
+         
+         
+         
+         
+         
+         
+         
+     
+
+     
+
+                  
+            
+            
+
+
+         
+
+           
+        
+                  
+          
+          
+    
+
+
+           
         
     
 if __name__ == "__main__":

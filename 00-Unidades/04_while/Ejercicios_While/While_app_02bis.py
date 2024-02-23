@@ -29,11 +29,16 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        contador_iteraciones = 0
-        while contador_iteraciones <=10:
-            print (contador_iteraciones )
-            contador_iteraciones += 1
-    
+        contador = 0
+        acumulador= 0
+        
+        while contador < 11 :
+            print (contador + 1)
+            if contador % 2 == 0 :
+                acumulador = contador + acumulador
+            contador += 1 
+        print("mensaje",acumulador)
+            
     
 if __name__ == "__main__":
     app = App()

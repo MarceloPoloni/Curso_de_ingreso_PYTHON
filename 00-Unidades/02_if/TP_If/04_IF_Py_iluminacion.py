@@ -11,7 +11,7 @@ apellido:
 TP: IF_Iluminacion
 ---
 Enunciado:
-Todas las lámparas están  al mismo precio de $800 pesos final.
+Todas las lámparas están  al mismo total de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
@@ -45,90 +45,45 @@ class App(customtkinter.CTk):
     def btn_calcular_on_click(self):
         marca_lamparas = self.combobox_marca.get()
         cantidad = int(self.combobox_cantidad.get())
-        precio = 800 * cantidad
-        total = precio
-        mensaje = total
-        
-        if cantidad > 5:
-            descuento = 0.5 * precio
-            total = precio - descuento
-            mensaje = total
-        
-        
+        total = 800 * cantidad
 
+        if cantidad >= 6:
+            descuento = 0.5 * total
+            total = total - descuento
         elif cantidad == 5 :
             if marca_lamparas == "ArgentinaLuz":
-                descuento = 0.4 * precio
-                total =  precio - descuento 
-                mensaje = total
+                descuento = 0.4 * total
+                total =  total - descuento 
             else: 
-                descuento = 0.3 * precio
-                total = precio - descuento  
-                mensaje = total
-        
-         
+                descuento = 0.3 * total
+                total = total - descuento  
+
         elif cantidad == 4:
             if marca_lamparas == "ArgentinaLuz" or marca_lamparas == "FelipeLamparas" :
-                descuento = 0.25 * precio
-                total = precio - descuento
-                mensaje = total
+                descuento = 0.25 * total
+                total = total - descuento        
             else :
-                descuento = 0.2 * precio
-                total = precio - descuento
-                mensaje = total
-        
+                descuento = 0.2 * total
+                total = total - descuento
+
         elif cantidad == 3 :
             if marca_lamparas == "ArgentinaLuz":
-                descuento = 0.15 * precio
-                total = precio - descuento
-                mensaje = total
+                descuento = 0.15 * total
+                total = total - descuento
             elif marca_lamparas == "FelipeLamparas":
-                descuento = 0.1 * precio
-                total = precio - descuento
-                mensaje = total
+                descuento = 0.1 * total
+                total = total - descuento
             else :
-                descuento = 0.05 * precio
-                total = precio - descuento
-
-        
-
+                descuento = 0.05 * total
+                total = total - descuento
+                
         if total > 4000 :
-            descuento = 0.05 * precio
-            total = precio - descuento
-            mensaje = total
+            descuento = 0.05 * total
+            total = total - descuento
 
-        alert ("Lamparas", mensaje)
+        alert ("Lamparas",total )
           
         
-         
-         
-         
-         
-         
-         
-         
-     
-
-     
-
-                  
-            
-            
-
-
-         
-
-           
-        
-                  
-          
-          
-    
-
-
-           
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -44,23 +44,46 @@ class App(customtkinter.CTk):
 
     def btn_calcular_on_click(self):
         marca = self.combobox_marca.get()
-        cantidad_txt = self.combobox_cantidad.get()
-        cantidad = int(cantidad_txt)
+        cantidad = int(self.combobox_cantidad.get())
         descuento = 0
+        total_inicial = 800 * cantidad
         match cantidad :
-            case "6"|"7"|"8"|"9"|"10"|"11"|"12":
+            case 6|7|8|9|10|11|12:
                 descuento = 0.50 * total_inicial
                 total_inicial = total_inicial - descuento
-            case "5":
+                
+            case 5:
                 match marca:
                     case "ArgentinaLuz":
-                         descuento = 0.4 * total_inicial
+                        descuento = 0.4 * total_inicial
+                        total_inicial = total_inicial - descuento
                     case _:
-                        descuento = 0.3 *total_inicial             
-        total_inicial = 800 * cantidad
-        ahorro = descuento * total_inicial
-        mensaje = total_inicial - ahorro
-        alert ("vvv",mensaje)
+                        descuento = 0.3 * total_inicial      
+                        total_inicial = total_inicial - descuento
+            case 4:
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        descuento = 0.25 * total_inicial
+                        total_inicial = total_inicial - descuento
+                    case _ :
+                        descuento = 0.2 * total_inicial
+                        total_inicial = total_inicial - descuento
+            case 3:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = 0.15 * total_inicial
+                        total_inicial = total_inicial - descuento
+                    case "FelipeLamparas":
+                        descuento = 0.1 * total_inicial
+                        total_inicial = total_inicial - descuento
+                    case _ :
+                        descuento = 0.05 * total_inicial
+                        total_inicial = total_inicial - descuento
+        if total_inicial > 4000 :
+            descuento = 0.05 * total_inicial
+            total_inicial = total_inicial - descuento
+
+        alert ("TOTAL",total_inicial)
       
             
             

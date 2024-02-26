@@ -55,7 +55,32 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt("ingrese","Ingrese apellido")
+        while True:
+            edad = prompt ("ingrese","edad")
+            edad =int(edad)
+            while edad <= 17 or edad > 90 :
+                edad = prompt("ERROR" , "reeingrese edad")
+                edad =int(edad)
+           
+            tipo = prompt("ingrese","ingrese tipo")
+            while tipo != "Soltero/a" and tipo != "Casado/a" and tipo != "Divorciado/a" and tipo != "Viudo/a":
+                tipo = prompt("ERROR","REEINGRESE")
+
+            numero_de_legajo = prompt("INGRESE", "INGRESE NRO")
+            numero_de_legajo =int(numero_de_legajo)
+            while numero_de_legajo <= 1000 and numero_de_legajo < 10000:
+                numero_de_legajo = prompt("error","reeingrese")
+                numero_de_legajo =int(numero_de_legajo)
+            break
+   
+        self.combobox_tipo.set(tipo)
+        self.txt_apellido.delete(0,"end")
+        self.txt_apellido.insert(0,apellido)
+        self.txt_edad.delete(0,"end")
+        self.txt_edad.insert(0,edad)
+        self.txt_legajo.delete(0,"end")
+        self.txt_legajo.insert(0,numero_de_legajo)
 
 
 if __name__ == "__main__":

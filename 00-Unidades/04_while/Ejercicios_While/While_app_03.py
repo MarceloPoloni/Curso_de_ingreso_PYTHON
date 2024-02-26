@@ -33,10 +33,6 @@ class App(customtkinter.CTk):
         #bandera = True
         while clave != "utn750":
             clave = prompt("error","clave incorrecta,vuelva a ingresar")
-            
-            
-               
-
 
     
     

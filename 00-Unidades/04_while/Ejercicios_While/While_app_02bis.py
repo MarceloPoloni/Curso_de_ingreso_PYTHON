@@ -32,7 +32,7 @@ class App(customtkinter.CTk):
         contador = 0
         acumulador= 0
         
-        while contador < 11 :
+        while contador < 10 :
             print (contador + 1)
             if contador % 2 == 0 :
                 acumulador = contador + acumulador

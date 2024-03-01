@@ -60,17 +60,17 @@ class App(customtkinter.CTk):
             edad = prompt ("ingrese","edad")
             edad =int(edad)
             while edad <= 17 or edad > 90 :
-                edad = prompt("ERROR" , "reeingrese edad")
+                edad = prompt("ERROR" , "reingrese edad")
                 edad =int(edad)
            
             tipo = prompt("ingrese","ingrese tipo")
             while tipo != "Soltero/a" and tipo != "Casado/a" and tipo != "Divorciado/a" and tipo != "Viudo/a":
-                tipo = prompt("ERROR","REEINGRESE")
+                tipo = prompt("ERROR","REINGRESE")
 
             numero_de_legajo = prompt("INGRESE", "INGRESE NRO")
             numero_de_legajo =int(numero_de_legajo)
             while numero_de_legajo <= 1000 and numero_de_legajo < 10000:
-                numero_de_legajo = prompt("error","reeingrese")
+                numero_de_legajo = prompt("error","reingrese")
                 numero_de_legajo =int(numero_de_legajo)
             break
    

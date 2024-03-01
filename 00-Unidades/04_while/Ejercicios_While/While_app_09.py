@@ -49,7 +49,7 @@ class App(customtkinter.CTk):
             if numero_ingresado == None or numero_ingresado == "":
                 
                 break   
-            if bandera_primer_ingreso == True :
+            elif bandera_primer_ingreso == True :
                 maximo = numero_ingresado
                 minimo = numero_ingresado
                 bandera_primer_ingreso = False

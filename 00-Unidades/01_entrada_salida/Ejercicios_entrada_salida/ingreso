@@ -16,17 +16,164 @@ class App(customtkinter.CTk):
         super().__init__()
 
         self.title("UTN FRA")
-
-       
-        
-        
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        nombre_alumno = self.txt_nombre.get()
-        alert("nombre del alumno", "Bienvenido" + " " + nombre_alumno)
+        veterinaria = True
+        contador_f = 0
+        contador_m = 0
+        contador_perro = 0 
+        contador_gato = 0
+        contador_exotico = 0
+        contador_mascotas = 0
+        bandera_primer_ingreso = True
+        mascota_menos_pesada = None
+        tipo_mascota_menos_pesada = 0
+        peso_de_la_menos_pesada = 0
+        edad_perro_mas_joven = 0
+        nombre_perro_mas_joven = None
+        acumulador_peso_perro = 0
+        acumulador_peso_gato = 0
+        acumulador_peso_exotico = 0
+
+        while veterinaria :
+            nombre = prompt ("m" , "ingrese nombre")
+            print (nombre)
+            
+
+            tipo = prompt("m" , "ingrese tipo")
+            while tipo != "gato" and tipo != "perro" and tipo != "exotico":
+                tipo = prompt("m" , " tiene que ser perro , gato o exotico")
+            
+            print (tipo)
+
+            sexo = prompt ("m" , "ingrese sexo")
+            while sexo != "m" and sexo != "f":
+                sexo = prompt("m" , "Tiene que ser F o M")
+
+            print (sexo)
+
+            peso = prompt("m" , "ingrese peso")
+            peso = int(peso)
+            while peso <= 10 or peso > 80 :
+                peso = prompt("m" , "el peso tiene que estar en 10 y 80")
+                peso = int(peso)
+
+            print(peso) 
+
+            edad = prompt ("m" ,"ingrese edad")
+            edad = int(edad)
+            while edad < 0:
+                edad = prompt ("m" , "la edad tiene que ser mayor a 0")
+                edad = int(edad)
+            
+            contador_mascotas += 1
+
+            print (edad)
+
+            match sexo :
+                case "f" :
+                    contador_f += 1
+                
+                case "m" :
+                    contador_m += 1
+
+            match tipo:
+                case "perro":
+                    contador_perro += 1
+                    acumulador_peso_perro += peso
+                
+                case "gato":
+                    contador_gato += 1
+                    acumulador_peso_gato += peso 
+                
+                case "exotico" :
+                    contador_exotico += 1
+                    acumulador_peso_exotico += peso
+          
+            #c)
+                    
+            if peso < peso_de_la_menos_pesada or bandera_primer_ingreso == True :
+                peso_de_la_menos_pesada = peso
+                mascota_menos_pesada = nombre
+                tipo_mascota_menos_pesada = tipo
+
+            print("la mascota menos pesada es " ,mascota_menos_pesada , " y es un " , tipo_mascota_menos_pesada)
+
+            if tipo == "perro" and (edad < edad_perro_mas_joven or bandera_primer_ingreso == True ):
+                edad_perro_mas_joven = edad
+                nombre_perro_mas_joven = nombre
+                bandera_primer_ingreso = False
+            
+            print ("el nombre del perro mas joven es ", nombre_perro_mas_joven)
+
+            if contador_mascotas == 5:
+                break
+            
+
+
+            if question ("mensaje" , "Desea ingresar otro dato ?") == False:
+                break
+
+
+
+            
+     #a)
+        if contador_m < contador_f:
+            mensaje = "el sexo menos ingresado fue el masculino"
+        elif contador_f < contador_m :
+            mensaje = "el sexo menos ingresado fue el femenino"
+        
+            print(mensaje)
+        
+        #b)
+        porcentaje_gato = contador_gato * 100 / contador_mascotas
+        porcentaje_perro = contador_perro * 100 / contador_mascotas
+        porcentaje_exotico = contador_exotico * 100 / contador_mascotas
+
+        mensaje_2 = (f"el porcentaje de exoticos es {porcentaje_exotico}  , el de gatos es {porcentaje_gato} y el de perros es {porcentaje_perro} ")
+
+        print(mensaje_2)
+       #e)
+        promedio_perro = acumulador_peso_perro / contador_mascotas
+        mensaje_promedio_perros = (f"el promedio de los perros es {promedio_perro}")
+        print(mensaje_promedio_perros)
+
+        promedio_gato = acumulador_peso_gato / contador_mascotas
+        mensaje_promedio_gato = (f"el promedio de los gatos es  ,{promedio_gato}")
+        print (mensaje_promedio_gato)
+        promedio_exotico = acumulador_peso_exotico / contador_mascotas
+        mensaje_promedio_exoticos = (f"el promedio de exoticos es , {promedio_exotico}")
+        print (mensaje_promedio_exoticos)
+
+
+
+        
+        
+
+
+
+
+
+#         Enunciado:
+# De 5 mascotas que ingresan a una veterinaria se deben tomar y validar los siguientes datos.
+# Nombre
+# Tipo (gato ,perro o exotico)
+# Peso ( entre 10 y 80)
+# Sexo( F o M )
+# Edad(mayor a 0)
+            
+# Pedir datos por prompt y mostrar por print, se debe informar:
+            
+# Informe A- Cuál fue el sexo menos ingresado (F o M)
+# Informe B- El porcentaje de mascotas hay por tipo (gato ,perro o exotico)
+# Informe C- El nombre y tipo de la mascota menos pesada
+# Informe D- El nombre del perro más joven
+# Informe E- El promedio de peso de todas las mascotas
+
+    
                 
     
 if __name__ == "__main__":

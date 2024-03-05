@@ -125,7 +125,8 @@ class App(customtkinter.CTk):
         #ayb)
         porcentaje_dia_1= contador_clientes_1_dia * 100 / contador_de_personas
         print(porcentaje_dia_1)
-        promedio_kilos_3_dias =  acumulador_kilos_PM / contador_de_personas
+        
+        promedio_kilos_3_dias =  acumulador_kilos_PM / contador_clientes_3_dia
         print (promedio_kilos_3_dias)
 
 
